@@ -22,7 +22,7 @@ def format(t1):
         minute = ten_second/6
         ten_second = ten_second % 6
      
-    return str(minute) + ":" + str(ten_second) + str(second) + "." + str(tenths_second)
+    return str(int(minute)) + ":" + str(int(ten_second)) + str(int(second)) + "." + str(int(tenths_second))
     pass
 
 def format(t2):
@@ -31,17 +31,15 @@ def format(t2):
     second = (t2 - tenths_second) % 100/10 
     subtractor = (t2 - tenths_second) % 100
     ten_second = (t2 -(tenths_second + subtractor))/100
-    
     if ten_second > 5:
         minute = ten_second/6
         ten_second = ten_second % 6
-     
-    return str(minute) + ":" + str(ten_second) + str(second) + "." + str(tenths_second)
+    return str(int(minute)) + ":" + str(int(ten_second)) + str(int(second)) + "." + str(int(tenths_second))
     pass
 
 def interval(num):
     string = num
-    return str(string)
+    return str(int(string))
 
 # define event handlers for buttons; "Start", "Stop", "Reset"
 def start():
@@ -53,11 +51,11 @@ def stop ():
     timer.stop ()
     
 def reset ():
-    global t1,t2,interval
+    global t1,t2,num
     timer,stop ()
     t1 = 0
     t2 = 0
-    interval = 0
+    num = 0
    
 
 # define event handler for timer with 0.1 sec interval
@@ -98,9 +96,9 @@ def input_handler3(text):
 
 # define draw handler
 def draw_handler1(canvas):
-    canvas.draw_text(format(t1),[130,150], 60, "White")
-    canvas.draw_text(format(t2),[130,300], 60, "Yellow")
-    canvas.draw_text(interval(num),[355,50], 40, "Green")
+    canvas.draw_text(format(t1),[110,180], 60, "White")
+    canvas.draw_text(format(t2),[110,330], 60, "Yellow")
+    canvas.draw_text(interval(num),[345,60], 40, "Green")
     
 
     
@@ -119,7 +117,7 @@ frame.add_button("Start", start, 80)
 frame.add_button("Stop", stop, 80)
 frame.add_button("Reset", reset, 80)
 frame.add_input('Excercise',input_handler1,60)
-frame.add_input('break',input_handler2,60)
+frame.add_input('rest',input_handler2,60)
 frame.add_input('intervals',input_handler3,60)
 
 # start frame
