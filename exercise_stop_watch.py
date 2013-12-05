@@ -86,8 +86,8 @@ def input_handler1(text):
 def input_handler2(text):
     global enter_break, t2, y
     enter_break = int(text)
-    t2 = enter_break * 600
-    y = t2
+    t2 = enter_break * 10 
+    y = t2 
     
     
 def input_handler3(text):
@@ -116,14 +116,10 @@ frame.set_draw_handler(draw_handler1)
 frame.add_button("Start", start, 80)
 frame.add_button("Stop", stop, 80)
 frame.add_button("Reset", reset, 80)
-frame.add_input('Excercise',input_handler1,60)
-frame.add_input('rest',input_handler2,60)
-frame.add_input('intervals',input_handler3,60)
+frame.add_input('Excercise, Enter Minutes',input_handler1,80)
+frame.add_input('Rest, Enter Seconds',input_handler2,80)
+frame.add_input('intervals',input_handler3,80)
 
 # start frame
 frame.start()
 
-
-
-
-# Please remember to review the grading rubric
